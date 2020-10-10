@@ -18,6 +18,7 @@ public class LinkedListTest {
 		list.addEnd(thirdNode);
 		list.print();
 	}
+
 	@Test
 	public void given3NumberWhenAddedToLinkedListShouldBeAddedFromFront() {
 		Node<Integer> firstNode = new Node<Integer>(56);
@@ -27,6 +28,19 @@ public class LinkedListTest {
 		list.addFront(firstNode);
 		list.addFront(secondNode);
 		list.addFront(thirdNode);
+		list.print();
+	}
+
+	@Test
+	public void given2NumberWhenAddedToLinkedListShouldBeAddNextKeyInMiddle() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(70);
+		Node<Integer> thirdNode = new Node<Integer>(30);
+		MyLinkedList list = new MyLinkedList();
+		list.addFront(firstNode);
+		list.addFront(secondNode);
+		list.print();
+		list.middle(thirdNode);
 		list.print();
 	}
 }

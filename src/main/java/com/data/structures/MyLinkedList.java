@@ -33,6 +33,36 @@ public class MyLinkedList {
 
 	}
 
+	public int len() {
+		INode temp = head;
+		int cnt = 0;
+		while (temp != null) {
+			cnt++;
+			temp = temp.getNext();
+		}
+		return cnt;
+	}
+
+	public void middle(INode node) {
+		if (head == null) {
+			this.head = node;
+			this.tail = node;
+			return;
+		}
+		int length = len() / 2;
+		INode temp = head;
+		INode temp2 = head.getNext();
+
+		while (temp2 != null && temp2.getNext() != null) {
+			temp = temp.getNext();
+			temp2 = temp2.getNext().getNext();
+		}
+		INode temp3 = temp.getNext();
+		temp.setNext(node);
+		node.setNext(temp3);
+
+	}
+
 	public void print() {
 		INode temp = head;
 		while (temp != null) {
