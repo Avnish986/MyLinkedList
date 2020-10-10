@@ -11,4 +11,15 @@ public class MyLinkedList {
 		this.tail = null;
 	}
 
+	public void addEnd(INode node) {
+		if (head == null) {
+			this.head = node;
+			this.tail = node;
+		} else {
+			node.setNext(head);
+			this.head = node;
+		}
+
+	}
+
 }
