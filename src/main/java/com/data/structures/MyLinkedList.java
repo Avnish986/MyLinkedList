@@ -81,6 +81,26 @@ public class MyLinkedList {
 
 	}
 
+	public int search(Integer key) {
+		int l = len();
+		if (head == null) {
+			return -1;
+		} else {
+			INode temp = head;
+			int cnt = 0;
+			while (temp != null) {
+				if (temp.getKey() == key) {
+					System.out.println("Fount at " + cnt);
+					return cnt;
+				}
+				cnt++;
+				temp = temp.getNext();
+			}
+
+		}
+		return -2;
+	}
+
 	public void print() {
 		INode temp = head;
 		while (temp != null) {
