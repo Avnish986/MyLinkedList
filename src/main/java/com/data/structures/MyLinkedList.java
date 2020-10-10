@@ -69,6 +69,18 @@ public class MyLinkedList {
 		return temp;
 	}
 
+	public INode popLast() {
+		INode temp = tail;
+		INode temp2 = head;
+		while (temp2.getNext() != temp) {
+			temp2 = temp2.getNext();
+		}
+		temp2.setNext(null);
+		tail = temp2;
+		return temp;
+
+	}
+
 	public void print() {
 		INode temp = head;
 		while (temp != null) {
