@@ -43,4 +43,19 @@ public class LinkedListTest {
 		list.middle(thirdNode);
 		list.print();
 	}
+
+	@Test
+	public void given3NumberWhenAddedToLinkedListShouldBePopHeadKey() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(30);
+		Node<Integer> thirdNode = new Node<Integer>(70);
+		MyLinkedList list = new MyLinkedList();
+		list.addFront(firstNode);
+		list.addFront(secondNode);
+		list.addFront(thirdNode);
+		list.print();
+		INode pop = list.pop();
+		list.print();
+		Assert.assertEquals(firstNode, pop);
+	}
 }

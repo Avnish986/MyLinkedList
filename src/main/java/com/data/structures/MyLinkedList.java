@@ -63,6 +63,12 @@ public class MyLinkedList {
 
 	}
 
+	public INode pop() {
+		INode temp = head;
+		head = head.getNext();
+		return temp;
+	}
+
 	public void print() {
 		INode temp = head;
 		while (temp != null) {
