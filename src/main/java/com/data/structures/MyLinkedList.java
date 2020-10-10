@@ -90,7 +90,7 @@ public class MyLinkedList {
 			int cnt = 0;
 			while (temp != null) {
 				if (temp.getKey() == key) {
-					System.out.println("Fount at " + cnt);
+					System.out.println(key + " Fount at " + cnt);
 					return cnt;
 				}
 				cnt++;
@@ -99,6 +99,28 @@ public class MyLinkedList {
 
 		}
 		return -2;
+	}
+
+	public void insert(INode node, Integer key) {
+		if (head == null) {
+			return;
+		}
+		int pos = search(key);
+		if (pos >= 0) {
+			INode temp = head;
+			while (temp != null) {
+				if (pos == 0) {
+					INode temp3 = temp.getNext();
+					temp.setNext(node);
+					node.setNext(temp3);
+				}
+				temp = temp.getNext();
+				pos--;
+			}
+		} else {
+			System.out.println("Not such key");
+			return;
+		}
 	}
 
 	public void print() {
