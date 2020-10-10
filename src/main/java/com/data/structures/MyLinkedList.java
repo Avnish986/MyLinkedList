@@ -123,6 +123,29 @@ public class MyLinkedList {
 		}
 	}
 
+	public void delete(Integer key) {
+		if (head == null) {
+			return;
+		}
+		int pos = search(key);
+		if (pos >= 0) {
+			INode temp = head;
+			INode temp2 = head.getNext();
+			while (temp2 != null) {
+				temp2 = temp2.getNext();
+				if (pos == 1) {
+					INode temp3 = temp.getNext();
+					temp.setNext(temp2);
+					return;
+				}
+				temp = temp.getNext();
+				pos--;
+			}
+		} else {
+			System.out.println("No such key in linked list");
+			return;
+		}
+	}
 	public void print() {
 		INode temp = head;
 		while (temp != null) {
