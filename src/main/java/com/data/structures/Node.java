@@ -2,7 +2,7 @@ package com.data.structures;
 
 import com.data.structure.INode;
 
-public class Node<K> implements INode<K> {
+public class Node<K extends Comparable<K>> implements INode<K> {
 	private INode next;
 	private K key;
 
@@ -10,7 +10,7 @@ public class Node<K> implements INode<K> {
 		this.key = key;
 		this.next = null;
 	}
-
+	@Override
 	public INode<K> getNext() {
 		return next;
 	}

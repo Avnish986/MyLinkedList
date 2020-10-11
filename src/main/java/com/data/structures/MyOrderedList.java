@@ -2,16 +2,16 @@ package com.data.structures;
 
 import com.data.structure.*;
 
-public class MyLinkedList<E> {
-	INode head;
-	INode tail;
+public class MyOrderedList<K extends Comparable<K>> {
+	INode<K> head;
+	INode<K> tail;
 
-	public MyLinkedList() {
+	public MyOrderedList() {
 		this.head = null;
 		this.tail = null;
 	}
 
-	public void addEnd(INode node) {
+	public void addEnd(INode<K> node) {
 		if (head == null) {
 			this.head = node;
 			this.tail = node;
@@ -22,7 +22,7 @@ public class MyLinkedList<E> {
 
 	}
 
-	public void addFront(INode node) {
+	public void addFront(INode<K> node) {
 		if (head == null) {
 			this.head = node;
 			this.tail = node;
@@ -31,6 +31,21 @@ public class MyLinkedList<E> {
 			this.tail = tail.getNext();
 		}
 
+	}
+
+	public void sortList(INode<K> node) {
+		INode<K> temp1 = head;
+		INode<K> temp2 = null;
+		while (temp1 != null && node.getKey().compareTo(temp1.getKey()) > 0) {
+			temp2 = temp1;
+			temp1 = temp1.getNext();
+		}
+		if (temp2 == null) {
+			this.head = node;
+		} else {
+			temp2.setNext(node);
+		}
+		node.setNext(temp1);
 	}
 
 	public int len() {
@@ -154,6 +169,10 @@ public class MyLinkedList<E> {
 			temp = temp.getNext();
 		}
 		System.out.println("");
+	}
+
+	public static void main(String[] args) {
+
 	}
 
 }

@@ -134,4 +134,24 @@ public class LinkedListTest {
 		assertEquals(true, result);
 		list.print();
 	}
+
+	@Test
+	public void given3NumbersWhenAddedToLinkedListShouldBeSort() {
+		Node<Integer> firstNode = new Node<>(70);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(56);
+		MyOrderedList<Integer> list = new MyOrderedList<>();
+		list.sortList(firstNode);
+		list.sortList(secondNode);
+		list.sortList(thirdNode);
+		list.print();
+		INode first = list.head;
+		INode sec = list.head.getNext();
+		INode third = list.head.getNext().getNext();
+		boolean result=false;
+		if(first == secondNode && sec == thirdNode && third ==firstNode) {
+			result=true;
+		}
+		Assert.assertTrue(result);
+	}
 }
